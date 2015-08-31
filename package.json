@@ -1,0 +1,23 @@
+{
+  "name": "react-native-button",
+  "version": "1.0.0",
+  "description": "React Native button component with rounded corners.",
+  "main": "Button.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/APSL/react-native-button.git"
+  },
+  "keywords": [
+    "react-native",
+    "button"
+  ],
+  "author": "Alvaro Medina Ballester",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/APSL/react-native-button/issues"
+  },
+  "homepage": "https://github.com/APSL/react-native-button#readme"
+}
