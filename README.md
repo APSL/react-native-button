@@ -2,6 +2,10 @@
 
 A React Native button component with rounded corners.
 
+<p align="center">
+<img src="https://raw.githubusercontent.com/wiki/APSL/react-native-button/button.png" alt="Button component screenshot" width="400">
+</p>
+
 ## Install
 
 Install the package:
