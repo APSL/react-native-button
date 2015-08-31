@@ -11,7 +11,7 @@ var {
   Text,
   View,
 } = React;
-var Button = require('Button');
+var Button = require('apsl-react-native-button');
 
 var button = React.createClass({
   render: function() {

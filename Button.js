@@ -1,18 +1,31 @@
-import React { TouchableOpacity, Text, StyleSheet } from 'react-native'
+import React, { Component, TouchableOpacity, Text, StyleSheet, PropTypes } from 'react-native'
 
 class Button extends Component {
   render () {
-    <TouchableOpacity
-      style={[styles.button]}>
-      <Text style={styles.textButton}>
-        {this.props.children}
-      </Text>
-    </TouchableOpacity>
+    // Extract TouchableOpacity props
+    let touchableProps = {
+      onPress: this.props.onPress,
+      onPressIn: this.props.onPressIn,
+      onPressOut: this.props.onPressOut,
+      onLongPress: this.props.onLongPress
+    }
+    return (
+      <TouchableOpacity {...touchableProps}
+        style={[styles.button, {borderColor: this.props.borderColor, backgroundColor: this.props.backgroundColor}]}>
+        <Text style={[styles.textButton, {color: this.props.textColor}]}>
+          {this.props.children}
+        </Text>
+      </TouchableOpacity>
+    )
   }
 }
 
 Button.propTypes = {
-  children: React.PropTypes.string.isRequired
+  ...TouchableOpacity.propTypes,
+  borderColor: PropTypes.string.isRequired,
+  backgroundColor: PropTypes.string.isRequired,
+  textColor: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired
 }
 
 let styles = StyleSheet.create({
@@ -28,7 +41,6 @@ let styles = StyleSheet.create({
   },
   textButton: {
     fontSize: 18,
-    color: 'white',
     alignSelf: 'center',
   },
 })
