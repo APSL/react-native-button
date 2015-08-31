@@ -31,7 +31,6 @@ Button.propTypes = {
 let styles = StyleSheet.create({
   button: {
     height: 44,
-    flex: 1,
     flexDirection: 'row',
     borderWidth: 1,
     borderRadius: 8,
