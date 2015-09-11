@@ -1,4 +1,6 @@
 import React, { Component, TouchableOpacity, Text, StyleSheet, PropTypes } from 'react-native'
+import StyleSheetPropType from 'react-native/Libraries/StyleSheet/StyleSheetPropType'
+import TextStylePropTypes from 'react-native/Libraries/Text/TextStylePropTypes'
 
 class Button extends Component {
   render () {
@@ -11,8 +13,8 @@ class Button extends Component {
     }
     return (
       <TouchableOpacity {...touchableProps}
-        style={[styles.button, {borderColor: this.props.borderColor, backgroundColor: this.props.backgroundColor}]}>
-        <Text style={[styles.textButton, {color: this.props.textColor}]}>
+        style={[styles.button, this.props.style]}>
+        <Text style={[styles.textButton, this.props.textStyle]}>
           {this.props.children}
         </Text>
       </TouchableOpacity>
@@ -22,9 +24,7 @@ class Button extends Component {
 
 Button.propTypes = {
   ...TouchableOpacity.propTypes,
-  borderColor: PropTypes.string.isRequired,
-  backgroundColor: PropTypes.string.isRequired,
-  textColor: PropTypes.string.isRequired,
+  textStyle: StyleSheetPropType(TextStylePropTypes),
   children: PropTypes.string.isRequired
 }
 
