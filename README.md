@@ -1,6 +1,6 @@
 # apsl-react-native-button
 
-A React Native button component with rounded corners.
+A React Native button component customizable via ``style`` props.
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/wiki/APSL/react-native-button/button.png" alt="Button component screenshot" width="400">
@@ -22,10 +22,14 @@ import Button from 'apsl-react-native-button'
 
 ## Usage
 
-There are four required props: ``borderColor``, ``backgroundColor``, ``textColor`` and a child ``string`` that represents the button text. Also, you can pass ``TouchableOpacity``' props to the component.
+Provide ``TouchableOpacity``' props to the component (including ``style``), ``textStyle``'s ``StyleSheet`` to customize the inner text and a children node to render. Check the included example for more options.
 
 ```javascript
-<Button borderColor={'red'} backgroundColor={'green'} textColor={'blue'}>
+<Button style={{backgroundColor: 'red'}} textStyle={{fontSize: 18}}>
   Hello!
 </Button>
 ```
+
+## License
+
+MIT.
