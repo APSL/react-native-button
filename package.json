@@ -1,6 +1,6 @@
 {
   "name": "apsl-react-native-button",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "React Native button component with rounded corners.",
   "main": "Button.js",
   "scripts": {
