@@ -73,6 +73,14 @@ var button = React.createClass({
           }}>
           Hello
         </Button>
+        <Button
+          isLoading={true}
+          style={styles.buttonStyle7} textStyle={styles.textStyle6}
+          onPress={() => {
+            console.log('world!')
+          }}>
+          Hello
+        </Button>
       </View>
     );
   }

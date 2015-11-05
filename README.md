@@ -22,7 +22,11 @@ import Button from 'apsl-react-native-button'
 
 ## Usage
 
-Provide ``TouchableOpacity``' props to the component (including ``style``), ``textStyle``'s ``StyleSheet`` to customize the inner text and a children node to render. Check the included example for more options.
+Provide ``TouchableOpacity``' props to the component (including ``style``),
+``textStyle``'s ``StyleSheet`` to customize the inner text and a children node
+to render. You can also provide the ``isLoading`` prop that will dim the button
+and disable it to prevent accidental taps. Check the included example for more
+options.
 
 ```javascript
 <Button style={{backgroundColor: 'red'}} textStyle={{fontSize: 18}}>

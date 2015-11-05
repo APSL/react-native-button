@@ -1,8 +1,25 @@
-import React, { Component, TouchableOpacity, Text, StyleSheet, PropTypes } from 'react-native'
+import React, { Component, View, TouchableOpacity, Text, StyleSheet, PropTypes, ActivityIndicatorIOS, Platform } from 'react-native'
 import StyleSheetPropType from 'react-native/Libraries/StyleSheet/StyleSheetPropType'
 import TextStylePropTypes from 'react-native/Libraries/Text/TextStylePropTypes'
 
 class Button extends Component {
+  _renderInnerText () {
+    let children = this.props.children
+    if (this.props.isLoading) {
+      if (Platform.OS === 'ios') {
+        return <ActivityIndicatorIOS style={styles.spinner}
+            animating={true} size='small' color='black' />
+      } else {
+        children = 'Loading...'
+      }
+    }
+    return (
+      <Text style={[styles.textButton, this.props.textStyle]}>
+        {children}
+      </Text>
+    )
+  }
+
   render () {
     // Extract TouchableOpacity props
     let touchableProps = {
@@ -11,12 +28,17 @@ class Button extends Component {
       onPressOut: this.props.onPressOut,
       onLongPress: this.props.onLongPress
     }
+    if (this.props.isLoading) {
+      return (
+        <View style={[styles.button, this.props.style, styles.opacity]}>
+          {this._renderInnerText()}
+        </View>
+      )
+    }
     return (
       <TouchableOpacity {...touchableProps}
         style={[styles.button, this.props.style]}>
-        <Text style={[styles.textButton, this.props.textStyle]}>
-          {this.props.children}
-        </Text>
+        {this._renderInnerText()}
       </TouchableOpacity>
     )
   }
@@ -25,7 +47,8 @@ class Button extends Component {
 Button.propTypes = {
   ...TouchableOpacity.propTypes,
   textStyle: StyleSheetPropType(TextStylePropTypes),
-  children: PropTypes.string.isRequired
+  children: PropTypes.string.isRequired,
+  isLoading: PropTypes.bool,
 }
 
 let styles = StyleSheet.create({
@@ -41,6 +64,12 @@ let styles = StyleSheet.create({
   textButton: {
     fontSize: 18,
     alignSelf: 'center',
+  },
+  spinner: {
+    alignSelf: 'center',
+  },
+  opacity: {
+    opacity: 0.3,
   },
 })
 
