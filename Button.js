@@ -1,16 +1,38 @@
-import React, { Component, View, TouchableOpacity, Text, StyleSheet, PropTypes, ActivityIndicatorIOS, Platform } from 'react-native'
+import React, { Component, View, TouchableOpacity, Text, StyleSheet, PropTypes, ActivityIndicatorIOS, ProgressBarAndroid, Platform } from 'react-native'
 import StyleSheetPropType from 'react-native/Libraries/StyleSheet/StyleSheetPropType'
 import TextStylePropTypes from 'react-native/Libraries/Text/TextStylePropTypes'
 
 class Button extends Component {
+  constructor(props) {
+    super(props)
+    
+    this.state = {
+      isLoading: (this.props.isLoading === true ? true : false),
+      isDisabled: (this.props.isDisabled === true ? true : false),
+    }
+  }
+  
   _renderInnerText () {
     let children = this.props.children
-    if (this.props.isLoading) {
-      if (Platform.OS === 'ios') {
-        return <ActivityIndicatorIOS style={styles.spinner}
-            animating={true} size='small' color='black' />
+    if (this.state.isLoading) {
+      if (Platform.OS !== 'android') {
+        return (
+          <ActivityIndicatorIOS
+            animating={true}
+            size="small"
+            style={styles.spinner}
+            color='black'
+          />
+        )
       } else {
-        children = 'Loading...'
+        return (
+          <ProgressBarAndroid 
+            style={[{
+              height: 20,
+            }, styles.spinner]}
+            styleAttr="Inverse"
+          />
+        )
       }
     }
     return (
@@ -28,19 +50,33 @@ class Button extends Component {
       onPressOut: this.props.onPressOut,
       onLongPress: this.props.onLongPress
     }
-    if (this.props.isLoading) {
+    
+    if (this.state.isDisabled === true || this.state.isLoading === true) {
       return (
         <View style={[styles.button, this.props.style, styles.opacity]}>
           {this._renderInnerText()}
         </View>
       )
+    } else {
+      return (
+        <TouchableOpacity {...touchableProps}
+          style={[styles.button, this.props.style]}>
+          {this._renderInnerText()}
+        </TouchableOpacity>
+      )      
     }
-    return (
-      <TouchableOpacity {...touchableProps}
-        style={[styles.button, this.props.style]}>
-        {this._renderInnerText()}
-      </TouchableOpacity>
-    )
+  }
+  
+  setIsLoading(val = false) {
+    this.setState({
+      isLoading: Boolean(val)
+    })
+  }
+  
+  setIsDisabled(val = false) {
+    this.setState({
+      isDisabled: Boolean(val)
+    })
   }
 }
 
@@ -49,6 +85,7 @@ Button.propTypes = {
   textStyle: StyleSheetPropType(TextStylePropTypes),
   children: PropTypes.string.isRequired,
   isLoading: PropTypes.bool,
+  isDisabled: PropTypes.bool,
 }
 
 let styles = StyleSheet.create({
