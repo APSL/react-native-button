@@ -41,7 +41,7 @@ and disable it to prevent accidental taps.
 | ``onPressIn`` | ``func`` | Function to execute when the ``onPressIn`` event is triggered. |
 | ``onPressOut`` | ``func`` | Function to execute when the ``onPressOut`` event is triggered. |
 | ``onLongPress`` | ``func`` | Function to execute when the ``onLongPress`` event is triggered. |
-| ``textStyle`` | ``StyleSheetPropType(TextStylePropTypes)`` | The StyleSheet to apply to the inner button text. |
+| ``textStyle`` | ``TextStylePropTypes`` | The StyleSheet to apply to the inner button text. |
 | ``children`` | ``string`` | The ``string`` to render as the text button. |
 | ``isLoading`` | ``bool`` | Renders an inactive state dimmed button with a spinner if ``true``. |
 | ``isDisabled`` | ``bool`` | Renders an inactive state dimmed button if ``true``. |
