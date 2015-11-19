@@ -36,7 +36,7 @@ and disable it to prevent accidental taps.
 ## API
 
 | Prop | Type | Description |
------------------------------
+|------|------|-------------|
 | ``onPress`` | ``func`` | Function to execute when the ``onPress`` event is triggered. |
 | ``onPressIn`` | ``func`` | Function to execute when the ``onPressIn`` event is triggered. |
 | ``onPressOut`` | ``func`` | Function to execute when the ``onPressOut`` event is triggered. |
