@@ -1,43 +1,33 @@
-import React, { Component, View, TouchableOpacity, Text, StyleSheet, PropTypes, ActivityIndicatorIOS, ProgressBarAndroid, Platform } from 'react-native'
+import React, { View, TouchableOpacity, Text, StyleSheet, PropTypes, ActivityIndicatorIOS, ProgressBarAndroid, Platform } from 'react-native'
 import StyleSheetPropType from 'react-native/Libraries/StyleSheet/StyleSheetPropType'
 import TextStylePropTypes from 'react-native/Libraries/Text/TextStylePropTypes'
 
-class Button extends Component {
-  constructor(props) {
-    super(props)
-    
-    this.state = {
-      isLoading: (this.props.isLoading === true ? true : false),
-      isDisabled: (this.props.isDisabled === true ? true : false),
-    }
-  }
-  
+class Button extends React.Component {
   _renderInnerText () {
-    let children = this.props.children
-    if (this.state.isLoading) {
+    if (this.props.isLoading) {
       if (Platform.OS !== 'android') {
         return (
           <ActivityIndicatorIOS
             animating={true}
-            size="small"
+            size='small'
             style={styles.spinner}
-            color='black'
+            color={this.props.activityIndicatorColor || 'black'}
           />
         )
       } else {
         return (
-          <ProgressBarAndroid 
+          <ProgressBarAndroid
             style={[{
               height: 20,
             }, styles.spinner]}
-            styleAttr="Inverse"
+            styleAttr='Inverse'
           />
         )
       }
     }
     return (
       <Text style={[styles.textButton, this.props.textStyle]}>
-        {children}
+        {this.props.children}
       </Text>
     )
   }
@@ -50,8 +40,8 @@ class Button extends Component {
       onPressOut: this.props.onPressOut,
       onLongPress: this.props.onLongPress
     }
-    
-    if (this.state.isDisabled === true || this.state.isLoading === true) {
+
+    if (this.props.isDisabled === true || this.props.isLoading === true) {
       return (
         <View style={[styles.button, this.props.style, styles.opacity]}>
           {this._renderInnerText()}
@@ -63,20 +53,8 @@ class Button extends Component {
           style={[styles.button, this.props.style]}>
           {this._renderInnerText()}
         </TouchableOpacity>
-      )      
+      )
     }
-  }
-  
-  setIsLoading(val = false) {
-    this.setState({
-      isLoading: Boolean(val)
-    })
-  }
-  
-  setIsDisabled(val = false) {
-    this.setState({
-      isDisabled: Boolean(val)
-    })
   }
 }
 
@@ -86,9 +64,10 @@ Button.propTypes = {
   children: PropTypes.string.isRequired,
   isLoading: PropTypes.bool,
   isDisabled: PropTypes.bool,
+  activityIndicatorColor: PropTypes.string,
 }
 
-let styles = StyleSheet.create({
+const styles = StyleSheet.create({
   button: {
     height: 44,
     flexDirection: 'row',
@@ -106,7 +85,7 @@ let styles = StyleSheet.create({
     alignSelf: 'center',
   },
   opacity: {
-    opacity: 0.3,
+    opacity: 0.5,
   },
 })
 
