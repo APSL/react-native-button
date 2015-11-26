@@ -23,8 +23,5 @@
   "bugs": {
     "url": "https://github.com/APSL/react-native-button/issues"
   },
-  "homepage": "https://github.com/APSL/react-native-button#readme",
-  "dependencies": {
-    "react-native": ">=0.11.0"
-  }
+  "homepage": "https://github.com/APSL/react-native-button#readme"
 }
