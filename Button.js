@@ -1,9 +1,30 @@
-import React, { View, TouchableOpacity, Text, StyleSheet, PropTypes, ActivityIndicatorIOS, ProgressBarAndroid, Platform } from 'react-native'
-import StyleSheetPropType from 'react-native/Libraries/StyleSheet/StyleSheetPropType'
-import TextStylePropTypes from 'react-native/Libraries/Text/TextStylePropTypes'
+'use strict';
 
-class Button extends React.Component {
-  _renderInnerText () {
+var React = require('react-native');
+var {
+  View,
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  PropTypes,
+  ActivityIndicatorIOS,
+  ProgressBarAndroid,
+  Platform
+} = React;
+var StyleSheetPropType = require('react-native/Libraries/StyleSheet/StyleSheetPropType');
+var TextStylePropTypes = require('react-native/Libraries/Text/TextStylePropTypes');
+
+var Button = React.createClass({
+  propTypes: Object.assign({},
+    TouchableOpacity.propTypes,
+    {textStyle: StyleSheetPropType(TextStylePropTypes),
+    children: PropTypes.string.isRequired,
+    isLoading: PropTypes.bool,
+    isDisabled: PropTypes.bool,
+    activityIndicatorColor: PropTypes.string},
+  ),
+
+  _renderInnerText: function () {
     if (this.props.isLoading) {
       if (Platform.OS !== 'android') {
         return (
@@ -13,7 +34,7 @@ class Button extends React.Component {
             style={styles.spinner}
             color={this.props.activityIndicatorColor || 'black'}
           />
-        )
+        );
       } else {
         return (
           <ProgressBarAndroid
@@ -22,52 +43,43 @@ class Button extends React.Component {
             }, styles.spinner]}
             styleAttr='Inverse'
           />
-        )
+        );
       }
     }
     return (
       <Text style={[styles.textButton, this.props.textStyle]}>
         {this.props.children}
       </Text>
-    )
-  }
+    );
+  },
 
-  render () {
+  render: function () {
     // Extract TouchableOpacity props
-    let touchableProps = {
+    var touchableProps = {
       onPress: this.props.onPress,
       onPressIn: this.props.onPressIn,
       onPressOut: this.props.onPressOut,
       onLongPress: this.props.onLongPress
-    }
+    };
 
     if (this.props.isDisabled === true || this.props.isLoading === true) {
       return (
         <View style={[styles.button, this.props.style, styles.opacity]}>
           {this._renderInnerText()}
         </View>
-      )
+      );
     } else {
       return (
         <TouchableOpacity {...touchableProps}
           style={[styles.button, this.props.style]}>
           {this._renderInnerText()}
         </TouchableOpacity>
-      )
+      );
     }
   }
-}
+});
 
-Button.propTypes = {
-  ...TouchableOpacity.propTypes,
-  textStyle: StyleSheetPropType(TextStylePropTypes),
-  children: PropTypes.string.isRequired,
-  isLoading: PropTypes.bool,
-  isDisabled: PropTypes.bool,
-  activityIndicatorColor: PropTypes.string,
-}
-
-const styles = StyleSheet.create({
+var styles = StyleSheet.create({
   button: {
     height: 44,
     flexDirection: 'row',
@@ -87,6 +99,6 @@ const styles = StyleSheet.create({
   opacity: {
     opacity: 0.5,
   },
-})
+});
 
-export default Button
+module.exports = Button;
