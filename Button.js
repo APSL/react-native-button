@@ -11,13 +11,11 @@ var {
   ProgressBarAndroid,
   Platform
 } = React;
-var StyleSheetPropType = require('react-native/Libraries/StyleSheet/StyleSheetPropType');
-var TextStylePropTypes = require('react-native/Libraries/Text/TextStylePropTypes');
 
 var Button = React.createClass({
   propTypes: Object.assign({},
     TouchableOpacity.propTypes,
-    {textStyle: StyleSheetPropType(TextStylePropTypes),
+    {textStyle: PropTypes.object,
     children: PropTypes.string.isRequired,
     isLoading: PropTypes.bool,
     isDisabled: PropTypes.bool,
