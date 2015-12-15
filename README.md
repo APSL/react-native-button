@@ -6,6 +6,8 @@ A React Native button component customizable via ``style`` props.
 <img src="https://raw.githubusercontent.com/wiki/APSL/react-native-button/button.png" alt="Button component screenshot" width="400">
 </p>
 
+Renders a ``TouchableOpacity`` under iOS and a ``TouchableNativeFeedback`` under Android.
+
 ## Install
 
 Install the package:
@@ -22,7 +24,7 @@ import Button from 'apsl-react-native-button'
 
 ## Usage
 
-Provide ``TouchableOpacity``' props to the component (including ``style``),
+Provide ``TouchableWithoutFeedback``' props to the component (including ``style``),
 ``textStyle``'s ``StyleSheet`` to customize the inner text and a children node
 to render. You can also provide the ``isLoading`` prop that will dim the button
 and disable it to prevent accidental taps.
@@ -45,7 +47,7 @@ and disable it to prevent accidental taps.
 | ``children`` | ``string`` | The ``string`` to render as the text button. |
 | ``isLoading`` | ``bool`` | Renders an inactive state dimmed button with a spinner if ``true``. |
 | ``isDisabled`` | ``bool`` | Renders an inactive state dimmed button if ``true``. |
-| ``activityIndicatorColor`` | ``string`` | **iOS only**. Sets the button of the ``ActivityIndicatorIOS`` in the loading state. |
+| ``activityIndicatorColor`` | ``string`` | Sets the button of the ``ActivityIndicatorIOS`` or ``ProgressBarAndroid`` in the loading state. |
 
 Check the included example for more options.
 

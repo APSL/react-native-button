@@ -9,6 +9,7 @@ var {
   PropTypes,
   ActivityIndicatorIOS,
   ProgressBarAndroid,
+  TouchableNativeFeedback,
   Platform
 } = React;
 var StyleSheetPropType = require('react-native/Libraries/StyleSheet/StyleSheetPropType');
@@ -16,12 +17,15 @@ var TextStylePropTypes = require('react-native/Libraries/Text/TextStylePropTypes
 
 var Button = React.createClass({
   propTypes: Object.assign({},
-    TouchableOpacity.propTypes,
     {textStyle: StyleSheetPropType(TextStylePropTypes),
     children: PropTypes.string.isRequired,
     isLoading: PropTypes.bool,
     isDisabled: PropTypes.bool,
-    activityIndicatorColor: PropTypes.string},
+    activityIndicatorColor: PropTypes.string,
+    onPress: PropTypes.func,
+    onLongPress: PropTypes.func,
+    onPressIn: PropTypes.func,
+    onPressOut: PropTypes.func},
   ),
 
   _renderInnerText: function () {
@@ -42,6 +46,7 @@ var Button = React.createClass({
               height: 20,
             }, styles.spinner]}
             styleAttr='Inverse'
+            color={this.props.activityIndicatorColor || 'black'}
           />
         );
       }
@@ -54,14 +59,13 @@ var Button = React.createClass({
   },
 
   render: function () {
-    // Extract TouchableOpacity props
+    // Extract Touchable props
     var touchableProps = {
       onPress: this.props.onPress,
       onPressIn: this.props.onPressIn,
       onPressOut: this.props.onPressOut,
       onLongPress: this.props.onLongPress
     };
-
     if (this.props.isDisabled === true || this.props.isLoading === true) {
       return (
         <View style={[styles.button, this.props.style, styles.opacity]}>
@@ -69,12 +73,23 @@ var Button = React.createClass({
         </View>
       );
     } else {
-      return (
-        <TouchableOpacity {...touchableProps}
-          style={[styles.button, this.props.style]}>
-          {this._renderInnerText()}
-        </TouchableOpacity>
-      );
+      if (Platform.OS !== 'android') {
+        return (
+          <TouchableOpacity {...touchableProps}
+            style={[styles.button, this.props.style]}>
+            {this._renderInnerText()}
+          </TouchableOpacity>
+        );
+      } else {
+        return (
+          <TouchableNativeFeedback {...touchableProps}
+            background={TouchableNativeFeedback.Ripple()}>
+            <Text style={[styles.button, this.props.style]}>
+              {this._renderInnerText()}
+            </Text>
+          </TouchableNativeFeedback>
+        );
+      }
     }
   }
 });
