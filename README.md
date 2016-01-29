@@ -4,6 +4,7 @@ A React Native button component customizable via ``style`` props.
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/wiki/APSL/react-native-button/button.png" alt="Button component screenshot" width="400">
+<img src="https://raw.githubusercontent.com/wiki/APSL/react-native-button/and.png" alt="Android Button component screenshot" width="400">
 </p>
 
 Renders a ``TouchableOpacity`` under iOS and a ``TouchableNativeFeedback`` under Android.
