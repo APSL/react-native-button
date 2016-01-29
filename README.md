@@ -55,6 +55,10 @@ and disable it to prevent accidental taps.
 
 Check the included example for more options.
 
+## Similar projects
+
+[James Ide](https://github.com/ide/)'s ``react-native-button`` https://github.com/ide/react-native-button/
+
 ## License
 
 MIT.
