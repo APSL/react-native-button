@@ -10,6 +10,8 @@ Renders a ``TouchableOpacity`` under iOS and a ``TouchableNativeFeedback`` under
 
 ## Install
 
+``apsl-react-native-button`` needs React Native 0.16 or higher.
+
 Install the package:
 
 ```bash
@@ -48,6 +50,7 @@ and disable it to prevent accidental taps.
 | ``isLoading`` | ``bool`` | Renders an inactive state dimmed button with a spinner if ``true``. |
 | ``isDisabled`` | ``bool`` | Renders an inactive state dimmed button if ``true``. |
 | ``activityIndicatorColor`` | ``string`` | Sets the button of the ``ActivityIndicatorIOS`` or ``ProgressBarAndroid`` in the loading state. |
+| ``background`` | ``TouchableNativeFeedback.propTypes.background`` | **Android only**. The background prop of ``TouchableNativeFeedback``. |
 
 Check the included example for more options.
 
