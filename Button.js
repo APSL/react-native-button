@@ -17,6 +17,7 @@ var Button = React.createClass({
   propTypes: Object.assign({},
     {
       textStyle: Text.propTypes.style,
+      disabledStyle: Text.propTypes.style,
       children: PropTypes.string.isRequired,
       isLoading: PropTypes.bool,
       isDisabled: PropTypes.bool,
@@ -80,7 +81,7 @@ var Button = React.createClass({
   render: function () {
     if (this.props.isDisabled === true || this.props.isLoading === true) {
       return (
-        <View style={[styles.button, this.props.style, styles.opacity]}>
+        <View style={[styles.button, this.props.style, (this.props.disabledStyle || styles.opacity)]}>
           {this._renderInnerText()}
         </View>
       );
