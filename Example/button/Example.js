@@ -70,6 +70,9 @@ export default class Example extends React.Component {
           }}>
           Hello
         </Button>
+        <Button disabledStyle={styles.buttonStyle8} isDisabled={true} textStyle={styles.textStyle8}>
+          Disabled
+        </Button>
       </View>
     )
   }
@@ -124,5 +127,16 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 0,
     borderWidth: 3,
+  },
+  buttonStyle8: {
+    backgroundColor: 'white',
+    borderColor: '#333',
+    borderWidth: 2,
+    borderRadius: 22,
+  },
+  textStyle8: {
+    fontFamily: 'Avenir Next',
+    fontWeight: '500',
+    color: '#333',
   }
 })
