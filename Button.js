@@ -123,7 +123,6 @@ var styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     marginBottom: 10,
-    alignSelf: 'stretch',
     justifyContent: 'center',
   },
   textButton: {
