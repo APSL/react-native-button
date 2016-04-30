@@ -1,6 +1,6 @@
 'use strict';
 
-var React = require('react-native');
+var   React = require('react-native');
 var {
   View,
   TouchableOpacity,
@@ -18,7 +18,11 @@ var Button = React.createClass({
     {
       textStyle: Text.propTypes.style,
       disabledStyle: Text.propTypes.style,
-      children: PropTypes.string.isRequired,
+      children: React.PropTypes.oneOfType([
+        React.PropTypes.string,
+        React.PropTypes.node,
+        React.PropTypes.element
+      ]),
       isLoading: PropTypes.bool,
       isDisabled: PropTypes.bool,
       activityIndicatorColor: PropTypes.string,
