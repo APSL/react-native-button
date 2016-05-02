@@ -19,6 +19,7 @@ var Button = React.createClass({
       textStyle: Text.propTypes.style,
       disabledStyle: Text.propTypes.style,
       children: PropTypes.string.isRequired,
+      activeOpacity: PropTypes.number,
       isLoading: PropTypes.bool,
       isDisabled: PropTypes.bool,
       activityIndicatorColor: PropTypes.string,
@@ -91,7 +92,8 @@ var Button = React.createClass({
         onPress: this.props.onPress,
         onPressIn: this.props.onPressIn,
         onPressOut: this.props.onPressOut,
-        onLongPress: this.props.onLongPress
+        onLongPress: this.props.onLongPress,
+        activeOpacity: this.props.activeOpacity,
       };
       if (Button.isAndroid) {
         touchableProps = Object.assign(touchableProps, {
