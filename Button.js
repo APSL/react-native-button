@@ -1,19 +1,24 @@
 'use strict';
 
-var React = require('react-native');
-var {
+const React = require('react');
+const {
+  PropTypes
+} = React;
+
+const {
   View,
   TouchableOpacity,
   Text,
   StyleSheet,
-  PropTypes,
   ActivityIndicatorIOS,
   ProgressBarAndroid,
   TouchableNativeFeedback,
   Platform
-} = React;
+} = require('react-native');
 
-var Button = React.createClass({
+const isEqual = require('lodash.isequal');
+
+const Button = React.createClass({
   propTypes: Object.assign({},
     {
       textStyle: Text.propTypes.style,
@@ -71,6 +76,13 @@ var Button = React.createClass({
     );
   },
 
+  shouldComponentUpdate: function (nextProps, nextState) {
+    if (!isEqual(nextProps, this.props)) {
+      return true;
+    }
+    return false;
+  },
+
   _renderInnerText: function () {
     if (Button.isAndroid) {
       return this._renderInnerTextAndroid()
@@ -87,7 +99,7 @@ var Button = React.createClass({
       );
     } else {
       // Extract Touchable props
-      var touchableProps = {
+      const touchableProps = {
         onPress: this.props.onPress,
         onPressIn: this.props.onPressIn,
         onPressOut: this.props.onPressOut,
@@ -116,7 +128,7 @@ var Button = React.createClass({
   }
 });
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   button: {
     height: 44,
     flexDirection: 'row',
