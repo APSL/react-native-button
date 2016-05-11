@@ -20,6 +20,7 @@ var Button = React.createClass({
       disabledStyle: Text.propTypes.style,
       children: PropTypes.string.isRequired,
       activeOpacity: PropTypes.number,
+      allowFontScaling: PropTypes.bool,
       isLoading: PropTypes.bool,
       isDisabled: PropTypes.bool,
       activityIndicatorColor: PropTypes.string,
@@ -66,7 +67,7 @@ var Button = React.createClass({
       );
     }
     return (
-      <Text style={[styles.textButton, this.props.textStyle]}>
+      <Text style={[styles.textButton, this.props.textStyle]} allowFontScaling={this.props.allowFontScaling}>
         {this.props.children}
       </Text>
     );
