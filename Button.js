@@ -23,7 +23,7 @@ const Button = React.createClass({
     {
       textStyle: Text.propTypes.style,
       disabledStyle: Text.propTypes.style,
-      children: PropTypes.string.isRequired,
+      children: PropTypes.node.isRequired,
       isLoading: PropTypes.bool,
       isDisabled: PropTypes.bool,
       activityIndicatorColor: PropTypes.string,
