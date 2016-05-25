@@ -24,6 +24,8 @@ const Button = React.createClass({
       textStyle: Text.propTypes.style,
       disabledStyle: Text.propTypes.style,
       children: PropTypes.string.isRequired,
+      activeOpacity: PropTypes.number,
+      allowFontScaling: PropTypes.bool,
       isLoading: PropTypes.bool,
       isDisabled: PropTypes.bool,
       activityIndicatorColor: PropTypes.string,
@@ -70,7 +72,7 @@ const Button = React.createClass({
       );
     }
     return (
-      <Text style={[styles.textButton, this.props.textStyle]}>
+      <Text style={[styles.textButton, this.props.textStyle]} allowFontScaling={this.props.allowFontScaling}>
         {this.props.children}
       </Text>
     );
@@ -103,7 +105,8 @@ const Button = React.createClass({
         onPress: this.props.onPress,
         onPressIn: this.props.onPressIn,
         onPressOut: this.props.onPressOut,
-        onLongPress: this.props.onLongPress
+        onLongPress: this.props.onLongPress,
+        activeOpacity: this.props.activeOpacity,
       };
       if (Button.isAndroid) {
         touchableProps = Object.assign(touchableProps, {
