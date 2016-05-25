@@ -99,7 +99,7 @@ const Button = React.createClass({
       );
     } else {
       // Extract Touchable props
-      const touchableProps = {
+      let touchableProps = {
         onPress: this.props.onPress,
         onPressIn: this.props.onPressIn,
         onPressOut: this.props.onPressOut,
