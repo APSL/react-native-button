@@ -19,21 +19,19 @@ const {
 const isEqual = require('lodash.isequal');
 
 const Button = React.createClass({
-  propTypes: Object.assign({},
-    {
-      textStyle: Text.propTypes.style,
-      disabledStyle: Text.propTypes.style,
-      children: PropTypes.string.isRequired,
-      isLoading: PropTypes.bool,
-      isDisabled: PropTypes.bool,
-      activityIndicatorColor: PropTypes.string,
-      onPress: PropTypes.func,
-      onLongPress: PropTypes.func,
-      onPressIn: PropTypes.func,
-      onPressOut: PropTypes.func,
-      background: (TouchableNativeFeedback.propTypes) ? TouchableNativeFeedback.propTypes.background : PropTypes.any,
-    },
-  ),
+  propTypes: {
+    textStyle: Text.propTypes.style,
+    disabledStyle: Text.propTypes.style,
+    children: PropTypes.string.isRequired,
+    isLoading: PropTypes.bool,
+    isDisabled: PropTypes.bool,
+    activityIndicatorColor: PropTypes.string,
+    onPress: PropTypes.func,
+    onLongPress: PropTypes.func,
+    onPressIn: PropTypes.func,
+    onPressOut: PropTypes.func,
+    background: (TouchableNativeFeedback.propTypes) ? TouchableNativeFeedback.propTypes.background : PropTypes.any,
+  },
 
   statics: {
     isAndroid: (Platform.OS === 'android'),

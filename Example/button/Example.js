@@ -6,7 +6,7 @@ export default class Example extends React.Component {
     return (
       <View style={styles.container}>
         <Button
-          background={(Platform.OS === 'android') ? TouchableNativeFeedback.Ripple('#f39c12', true) : undefined}
+          background={(Platform.OS === 'android') ? TouchableNativeFeedback.Ripple('#f39c12', true) : null}
           style={styles.buttonStyle} textStyle={styles.textStyle}
           onPress={() => {
             console.log('world!')

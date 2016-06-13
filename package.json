@@ -4,7 +4,8 @@
   "description": "React Native button component with rounded corners.",
   "main": "Button.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint Button.js",
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
