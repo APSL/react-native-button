@@ -3,6 +3,12 @@ import Button from 'apsl-react-native-button'
 
 export default class Example extends React.Component {
   render () {
+    var onPressProps;
+    if(this.state.isOnPressing) {
+      onPressProps = styles.buttonStylePressing
+    } else {
+      onPressProps = styles.buttonStyle1
+    }
     return (
       <View style={styles.container}>
         <Button
@@ -14,10 +20,12 @@ export default class Example extends React.Component {
           Hello
         </Button>
         <Button
-          style={styles.buttonStyle1} textStyle={styles.textStyle}
-          onPress={() => {
-            console.log('world!')
-          }}>
+          textStyle={styles.textStyle}
+          style={onPressProps}
+          activeOpacity={1}
+          isOnPressing={this.state.isOnPressing}
+          onPressIn={() => this.onPressIn()}
+          onPressOut={() => this.onPressOut()}>
           Hello
         </Button>
         <Button
@@ -93,6 +101,10 @@ const styles = StyleSheet.create({
     color: '#8e44ad',
     fontFamily: 'Avenir',
     fontWeight: 'bold'
+  },
+  buttonStylePressing: {
+    borderColor: 'red',
+    backgroundColor: 'red'
   },
   buttonStyle: {
     borderColor: '#f39c12',
