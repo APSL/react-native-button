@@ -29,6 +29,9 @@ const Button = React.createClass({
       isLoading: PropTypes.bool,
       isDisabled: PropTypes.bool,
       activityIndicatorColor: PropTypes.string,
+      delayLongPress: PropTypes.number,
+      delayPressIn: PropTypes.number,
+      delayPressOut: PropTypes.number,
       onPress: PropTypes.func,
       onLongPress: PropTypes.func,
       onPressIn: PropTypes.func,
@@ -107,6 +110,9 @@ const Button = React.createClass({
         onPressOut: this.props.onPressOut,
         onLongPress: this.props.onLongPress,
         activeOpacity: this.props.activeOpacity,
+        delayLongPress: this.props.delayLongPress,
+        delayPressIn: this.props.delayPressIn,
+        delayPressOut: this.props.delayPressOut,
       };
       if (Button.isAndroid) {
         touchableProps = Object.assign(touchableProps, {
