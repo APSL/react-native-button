@@ -10,7 +10,7 @@ const {
   TouchableOpacity,
   Text,
   StyleSheet,
-  ActivityIndicatorIOS,
+  ActivityIndicator,
   ProgressBarAndroid,
   TouchableNativeFeedback,
   Platform
@@ -64,7 +64,7 @@ const Button = React.createClass({
   _renderInnerTextiOS: function () {
     if (this.props.isLoading) {
       return (
-        <ActivityIndicatorIOS
+        <ActivityIndicator
           animating={true}
           size='small'
           style={styles.spinner}
