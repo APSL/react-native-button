@@ -1,5 +1,5 @@
 {
-  # "parser": "babel-eslint",
+  "parser": "babel-eslint",
 
   "ecmaFeatures": {
     "jsx": true
@@ -12,7 +12,8 @@
   },
 
   "plugins": [
-    "react"
+    "react",
+    "react-native"
   ],
 
   "globals": {
@@ -86,7 +87,7 @@
     "no-caller": 1,
     "no-div-regex": 1,
     "no-else-return": 0,
-    "no-empty-label": 1,
+    "no-labels": 1,
     "no-eq-null": 0,
     "no-eval": 1,
     "no-extend-native": 1,
@@ -94,7 +95,6 @@
     "no-fallthrough": 1,
     "no-floating-decimal": 1,
     "no-implied-eval": 1,
-    "no-labels": 1,
     "no-iterator": 1,
     "no-lone-blocks": 1,
     "no-loop-func": 0,
@@ -165,11 +165,10 @@
     "quote-props": 0,
     "semi": 0,
     "sort-vars": 0,
-    "space-after-keywords": 1,
+    "keyword-spacing": 1,
     "space-in-brackets": 0,
     "space-in-parens": 0,
     "space-infix-ops": 1,
-    "space-return-throw-case": 1,
     "space-unary-ops": [1, { "words": true, "nonwords": false }],
     "max-nested-callbacks": 0,
     "one-var": 0,
