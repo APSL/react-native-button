@@ -10,8 +10,7 @@ const {
   TouchableOpacity,
   Text,
   StyleSheet,
-  ActivityIndicatorIOS,
-  ProgressBarAndroid,
+  ActivityIndicator,
   TouchableNativeFeedback,
   Platform
 } = require('react-native');
@@ -42,29 +41,17 @@ const Button = React.createClass({
     isAndroid: (Platform.OS === 'android'),
   },
 
-  _renderInnerTextAndroid: function () {
-    if (this.props.isLoading) {
-      return (
-        <ProgressBarAndroid
-          style={[{
-            height: 20,
-          }, styles.spinner]}
-          styleAttr='Inverse'
-          color={this.props.activityIndicatorColor || 'black'}
-        />
-      );
+  shouldComponentUpdate: function (nextProps, nextState) {
+    if (!isEqual(nextProps, this.props)) {
+      return true;
     }
-    return (
-      <Text style={[styles.textButton, this.props.textStyle]}>
-        {this.props.children}
-      </Text>
-    );
+    return false;
   },
 
-  _renderInnerTextiOS: function () {
+  _renderInnerText: function () {
     if (this.props.isLoading) {
       return (
-        <ActivityIndicatorIOS
+        <ActivityIndicator
           animating={true}
           size='small'
           style={styles.spinner}
@@ -77,20 +64,6 @@ const Button = React.createClass({
         {this.props.children}
       </Text>
     );
-  },
-
-  shouldComponentUpdate: function (nextProps, nextState) {
-    if (!isEqual(nextProps, this.props)) {
-      return true;
-    }
-    return false;
-  },
-
-  _renderInnerText: function () {
-    if (Button.isAndroid) {
-      return this._renderInnerTextAndroid()
-    }
-    return this._renderInnerTextiOS()
   },
 
   render: function () {
@@ -119,7 +92,7 @@ const Button = React.createClass({
         return (
           <TouchableNativeFeedback {...touchableProps}>
             <Text style={[styles.button, this.props.style]}>
-              {this._renderInnerTextAndroid()}
+              {this._renderInnerText()}
             </Text>
           </TouchableNativeFeedback>
         )
@@ -127,7 +100,7 @@ const Button = React.createClass({
         return (
           <TouchableOpacity {...touchableProps}
             style={[styles.button, this.props.style]}>
-            {this._renderInnerTextiOS()}
+            {this._renderInnerText()}
           </TouchableOpacity>
         );
       }
