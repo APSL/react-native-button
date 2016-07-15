@@ -1,10 +1,18 @@
-import React, { View, StyleSheet, TouchableNativeFeedback, Platform } from 'react-native'
+import React from 'react'
+import { View, StyleSheet, TouchableNativeFeedback, Platform } from 'react-native'
 import Button from 'apsl-react-native-button'
 
-export default class Example extends React.Component {
+class Example extends React.Component {
+  constructor (props: Object) {
+    super(props)
+    this.state = {
+      isOnPressing: false
+    }
+  }
+
   render () {
     var onPressProps;
-    if(this.state.isOnPressing) {
+    if (this.state.isOnPressing) {
       onPressProps = styles.buttonStylePressing
     } else {
       onPressProps = styles.buttonStyle1
@@ -152,3 +160,5 @@ const styles = StyleSheet.create({
     color: '#333',
   }
 })
+
+export default Example

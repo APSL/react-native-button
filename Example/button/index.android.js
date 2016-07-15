@@ -4,10 +4,10 @@
  */
 'use strict';
 
-var React = require('react-native');
+var React = require('react');
 var {
   AppRegistry,
-} = React;
+} = require('react-native');
 import Example from './Example'
 
 var button = React.createClass({
