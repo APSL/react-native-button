@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, TouchableNativeFeedback, Platform } from 'react-native'
+import { View, Text, StyleSheet, TouchableNativeFeedback, Platform } from 'react-native'
 import Button from 'apsl-react-native-button'
 
 class Example extends React.Component {
@@ -32,8 +32,8 @@ class Example extends React.Component {
           style={onPressProps}
           activeOpacity={1}
           isOnPressing={this.state.isOnPressing}
-          onPressIn={() => this.onPressIn()}
-          onPressOut={() => this.onPressOut()}>
+          onPressIn={() => console.log('onPressIn')}
+          onPressOut={() => console.log('onPressOut')}>
           Hello
         </Button>
         <Button
@@ -86,8 +86,19 @@ class Example extends React.Component {
           }}>
           Hello
         </Button>
-        <Button disabledStyle={styles.buttonStyle8} isDisabled={true} textStyle={styles.textStyle8}>
+        <Button disabledStyle={styles.buttonStyle8}
+          isDisabled={true}
+          textStyle={styles.textStyle8}>
           Disabled
+        </Button>
+        <Button style={styles.buttonStyle8}
+          textStyle={styles.textStyle8}
+          onPress={() => console.log('world!')}>
+          <View style={styles.customViewStyle}>
+            <Text style={{textAlign: 'center', fontFamily: 'Avenir'}}>
+              Custom inner view
+            </Text>
+          </View>
         </Button>
       </View>
     )
@@ -158,6 +169,12 @@ const styles = StyleSheet.create({
     fontFamily: 'Avenir Next',
     fontWeight: '500',
     color: '#333',
+  },
+  customViewStyle: {
+    width: 120,
+    height: 40,
+    alignItems: 'center',
+    flexDirection: 'row',
   }
 })
 
