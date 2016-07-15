@@ -21,7 +21,11 @@ const Button = React.createClass({
   propTypes: {
     textStyle: Text.propTypes.style,
     disabledStyle: Text.propTypes.style,
-    children: PropTypes.string.isRequired,
+    children: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.node,
+      PropTypes.element
+    ]),
     activeOpacity: PropTypes.number,
     allowFontScaling: PropTypes.bool,
     isLoading: PropTypes.bool,
@@ -39,6 +43,26 @@ const Button = React.createClass({
 
   statics: {
     isAndroid: (Platform.OS === 'android'),
+  },
+
+  _renderChildren: function() {
+    let childElements = [];
+    React.Children.forEach(this.props.children, (item) => {
+      if (typeof item === 'string' || typeof item === 'number') {
+        const element = (
+          <Text
+            style={[styles.textButton, this.props.textStyle]}
+            allowFontScaling={this.props.allowFontScaling}
+            key={item}>
+            {item}
+          </Text>
+        );
+        childElements.push(element);
+      } else if (React.isValidElement(item)) {
+        childElements.push(item);
+      }
+    });
+    return (childElements);
   },
 
   shouldComponentUpdate: function (nextProps, nextState) {
@@ -59,11 +83,7 @@ const Button = React.createClass({
         />
       );
     }
-    return (
-      <Text style={[styles.textButton, this.props.textStyle]} allowFontScaling={this.props.allowFontScaling}>
-        {this.props.children}
-      </Text>
-    );
+    return this._renderChildren();
   },
 
   render: function () {
