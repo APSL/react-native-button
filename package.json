@@ -5,7 +5,17 @@
   "main": "Button.js",
   "scripts": {
     "lint": "eslint Button.js",
-    "test": "npm run lint"
+    "test": "npm run lint && jest --verbose"
+  },
+  "jest": {
+    "preset": "jest-react-native",
+    "modulePathIgnorePatterns": [
+      "Example",
+      "node_modules/react-native/node_modules/"
+    ],
+    "preprocessorIgnorePatterns": [
+      "node_modules/(?!react-native|tcomb-form-native|react-native-localization|@exponent/react-native-action-sheet|rnrf-relay-renderer|redux-action-api-utils|frisbee)"
+    ]
   },
   "repository": {
     "type": "git",
@@ -30,8 +40,18 @@
   },
   "devDependencies": {
     "babel-eslint": "^6.0.5",
+    "babel-jest": "^15.0.0",
+    "babel-plugin-transform-flow-strip-types": "^6.14.0",
+    "babel-preset-react-native": "^1.9.0",
+    "es6-promise": "^3.3.1",
     "eslint": "^2.13.1",
     "eslint-plugin-react": "^5.2.2",
-    "eslint-plugin-react-native": "^1.1.0-beta"
+    "eslint-plugin-react-native": "^1.1.0-beta",
+    "jest": "^15.1.1",
+    "jest-react-native": "^15.0.0",
+    "react": "^15.3.2",
+    "react-native": "^0.34.0",
+    "react-test-renderer": "^15.3.2",
+    "whatwg-fetch": "^1.0.0"
   }
 }
