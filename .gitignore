@@ -25,10 +25,11 @@ DerivedData
 #
 #Pods/
 
+coverage/
+
 # React Native
 .idea
 .DS_Store
 node_modules/*
 FacebookLogin.xcodeproj/xcuserdata/**/*
 FacebookLogin.xcodeproj/project.xcworkspace/**/*
-.babelrc

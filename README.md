@@ -1,4 +1,6 @@
 # apsl-react-native-button
+<img src="https://travis-ci.org/APSL/react-native-button.svg?branch=master" />
+<img src="https://img.shields.io/badge/coverage-82%25-green.svg" />
 
 A React Native button component customizable via ``style`` props.
 
@@ -41,7 +43,7 @@ and disable it to prevent accidental taps.
 
 You can also provide a `<Button>` element with nested children that are not strings
 or `<Text>` elements as long as they are valid React elements or numbers. This helps
-if your project is using another library that provides easy icon integration 
+if your project is using another library that provides easy icon integration
 utilizing the `<i>` tag, for instance, as well as various other cases where you are
 creating visually complex buttons. You may omit the `textStyle` property and apply
 your own styles to your child elements as you see fit. Multiple children are allowed.
