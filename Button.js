@@ -27,6 +27,7 @@ const Button = React.createClass({
       PropTypes.element
     ]),
     activeOpacity: PropTypes.number,
+    accessibilityLabel: PropTypes.string,
     allowFontScaling: PropTypes.bool,
     isLoading: PropTypes.bool,
     isDisabled: PropTypes.bool,
@@ -96,6 +97,7 @@ const Button = React.createClass({
     } else {
       // Extract Touchable props
       let touchableProps = {
+        accessibilityLabel: this.props.accessibilityLabel,
         onPress: this.props.onPress,
         onPressIn: this.props.onPressIn,
         onPressOut: this.props.onPressOut,
