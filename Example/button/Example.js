@@ -86,7 +86,8 @@ class Example extends React.Component {
           }}>
           Hello
         </Button>
-        <Button disabledStyle={styles.buttonStyle8}
+        <Button
+          disabledStyle={styles.buttonStyle8}
           isDisabled={true}
           textStyle={styles.textStyle8}>
           Disabled
@@ -166,6 +167,7 @@ const styles = StyleSheet.create({
     borderRadius: 22,
   },
   textStyle8: {
+    width: 200,
     fontFamily: 'Avenir Next',
     fontWeight: '500',
     color: '#333',

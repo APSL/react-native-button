@@ -1,11 +1,7 @@
 'use strict';
 
-const React = require('react');
-const {
-  PropTypes
-} = React;
-
-const {
+import React, { PropTypes } from 'react';
+import {
   View,
   TouchableOpacity,
   Text,
@@ -13,9 +9,8 @@ const {
   ActivityIndicator,
   TouchableNativeFeedback,
   Platform
-} = require('react-native');
-
-const isEqual = require('lodash.isequal');
+} from 'react-native';
+import isEqual from 'lodash.isequal';
 
 const Button = React.createClass({
   propTypes: {
@@ -26,8 +21,8 @@ const Button = React.createClass({
       PropTypes.node,
       PropTypes.element
     ]),
-    activeOpacity: PropTypes.number,
     accessibilityLabel: PropTypes.string,
+    activeOpacity: PropTypes.number,
     allowFontScaling: PropTypes.bool,
     isLoading: PropTypes.bool,
     isDisabled: PropTypes.bool,
@@ -94,38 +89,37 @@ const Button = React.createClass({
           {this._renderInnerText()}
         </View>
       );
-    } else {
-      // Extract Touchable props
-      let touchableProps = {
-        accessibilityLabel: this.props.accessibilityLabel,
-        onPress: this.props.onPress,
-        onPressIn: this.props.onPressIn,
-        onPressOut: this.props.onPressOut,
-        onLongPress: this.props.onLongPress,
-        activeOpacity: this.props.activeOpacity,
-        delayLongPress: this.props.delayLongPress,
-        delayPressIn: this.props.delayPressIn,
-        delayPressOut: this.props.delayPressOut,
-      };
-      if (Button.isAndroid) {
-        touchableProps = Object.assign(touchableProps, {
-          background: this.props.background || TouchableNativeFeedback.SelectableBackground()
-        });
-        return (
-          <TouchableNativeFeedback {...touchableProps}>
-            <Text style={[styles.button, this.props.style]}>
-              {this._renderInnerText()}
-            </Text>
-          </TouchableNativeFeedback>
-        )
-      } else {
-        return (
-          <TouchableOpacity {...touchableProps}
-            style={[styles.button, this.props.style]}>
+    }
+    // Extract Touchable props
+    let touchableProps = {
+      accessibilityLabel: this.props.accessibilityLabel,
+      onPress: this.props.onPress,
+      onPressIn: this.props.onPressIn,
+      onPressOut: this.props.onPressOut,
+      onLongPress: this.props.onLongPress,
+      activeOpacity: this.props.activeOpacity,
+      delayLongPress: this.props.delayLongPress,
+      delayPressIn: this.props.delayPressIn,
+      delayPressOut: this.props.delayPressOut,
+    };
+    if (Button.isAndroid) {
+      touchableProps = Object.assign(touchableProps, {
+        background: this.props.background || TouchableNativeFeedback.SelectableBackground()
+      });
+      return (
+        <TouchableNativeFeedback {...touchableProps}>
+          <View style={[styles.button, this.props.style]}>
             {this._renderInnerText()}
-          </TouchableOpacity>
-        );
-      }
+          </View>
+        </TouchableNativeFeedback>
+      )
+    } else {
+      return (
+        <TouchableOpacity {...touchableProps}
+          style={[styles.button, this.props.style]}>
+          {this._renderInnerText()}
+        </TouchableOpacity>
+      );
     }
   }
 });
@@ -134,6 +128,7 @@ const styles = StyleSheet.create({
   button: {
     height: 44,
     flexDirection: 'row',
+    alignItems: 'center',
     borderWidth: 1,
     borderRadius: 8,
     marginBottom: 10,
@@ -141,8 +136,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   textButton: {
+    flex: 1,
     fontSize: 18,
-    alignSelf: 'center',
+    textAlign: 'center',
+    backgroundColor: 'transparent',
   },
   spinner: {
     alignSelf: 'center',

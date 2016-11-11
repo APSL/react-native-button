@@ -14,6 +14,7 @@ exports[`Button Renders 1`] = `
   onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
   style={
     Object {
+      "alignItems": "center",
       "alignSelf": "stretch",
       "borderRadius": 8,
       "borderWidth": 1,
@@ -32,8 +33,10 @@ exports[`Button Renders 1`] = `
     style={
       Array [
         Object {
-          "alignSelf": "center",
-          "fontSize": 18
+          "backgroundColor": "transparent",
+          "flex": 1,
+          "fontSize": 18,
+          "textAlign": "center"
         },
         undefined
       ]
@@ -48,6 +51,7 @@ exports[`Button Renders disabled 1`] = `
   style={
     Array [
       Object {
+        "alignItems": "center",
         "alignSelf": "stretch",
         "borderRadius": 8,
         "borderWidth": 1,
@@ -69,8 +73,10 @@ exports[`Button Renders disabled 1`] = `
     style={
       Array [
         Object {
-          "alignSelf": "center",
-          "fontSize": 18
+          "backgroundColor": "transparent",
+          "flex": 1,
+          "fontSize": 18,
+          "textAlign": "center"
         },
         undefined
       ]
@@ -85,6 +91,7 @@ exports[`Button Renders loading 1`] = `
   style={
     Array [
       Object {
+        "alignItems": "center",
         "alignSelf": "stretch",
         "borderRadius": 8,
         "borderWidth": 1,
@@ -128,6 +135,7 @@ exports[`Button Renders with a inner View 1`] = `
   onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
   style={
     Object {
+      "alignItems": "center",
       "alignSelf": "stretch",
       "borderRadius": 8,
       "borderWidth": 1,
@@ -159,6 +167,7 @@ exports[`Button Should contain children 1`] = `
   onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
   style={
     Object {
+      "alignItems": "center",
       "alignSelf": "stretch",
       "borderRadius": 8,
       "borderWidth": 1,
@@ -177,8 +186,10 @@ exports[`Button Should contain children 1`] = `
     style={
       Array [
         Object {
-          "alignSelf": "center",
-          "fontSize": 18
+          "backgroundColor": "transparent",
+          "flex": 1,
+          "fontSize": 18,
+          "textAlign": "center"
         },
         undefined
       ]
@@ -204,6 +215,7 @@ exports[`Button Should react to the onPress event 1`] = `
   onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
   style={
     Object {
+      "alignItems": "center",
       "alignSelf": "stretch",
       "borderRadius": 8,
       "borderWidth": 1,
@@ -222,8 +234,10 @@ exports[`Button Should react to the onPress event 1`] = `
     style={
       Array [
         Object {
-          "alignSelf": "center",
-          "fontSize": 18
+          "backgroundColor": "transparent",
+          "flex": 1,
+          "fontSize": 18,
+          "textAlign": "center"
         },
         undefined
       ]
