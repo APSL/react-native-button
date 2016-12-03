@@ -34,7 +34,7 @@ const Button = React.createClass({
     onLongPress: PropTypes.func,
     onPressIn: PropTypes.func,
     onPressOut: PropTypes.func,
-    background: (TouchableNativeFeedback.propTypes) ? TouchableNativeFeedback.propTypes.background : PropTypes.any,
+    background: (TouchableNativeFeedback && TouchableNativeFeedback.propTypes) ? TouchableNativeFeedback.propTypes.background : PropTypes.any,
   },
 
   statics: {
