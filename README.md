@@ -1,6 +1,7 @@
 # apsl-react-native-button
 <img src="https://travis-ci.org/APSL/react-native-button.svg?branch=master" />
 <img src="https://img.shields.io/badge/coverage-82%25-green.svg" />
+<img src="https://img.shields.io/npm/dm/apsl-react-native-button.svg" />
 
 A React Native button component customizable via ``style`` props.
 
