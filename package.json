@@ -49,9 +49,9 @@
     "eslint-plugin-react-native": "^1.1.0-beta",
     "jest": "^15.1.1",
     "jest-react-native": "^15.0.0",
-    "react": "^15.3.2",
-    "react-native": "^0.34.0",
-    "react-test-renderer": "^15.3.2",
+    "react": "15.3.2",
+    "react-native": "0.34.0",
+    "react-test-renderer": "15.3.2",
     "whatwg-fetch": "^1.0.0"
   }
 }
