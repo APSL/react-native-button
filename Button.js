@@ -27,6 +27,7 @@ const Button = React.createClass({
     isLoading: PropTypes.bool,
     isDisabled: PropTypes.bool,
     activityIndicatorColor: PropTypes.string,
+    activityIndicatorWithText: PropTypes.bool,
     delayLongPress: PropTypes.number,
     delayPressIn: PropTypes.number,
     delayPressOut: PropTypes.number,
@@ -41,8 +42,18 @@ const Button = React.createClass({
     isAndroid: (Platform.OS === 'android'),
   },
 
+  shouldComponentUpdate: function (nextProps, nextState) {
+    if (!isEqual(nextProps, this.props)) {
+      return true;
+    }
+    return false;
+  },
+
   _renderChildren: function() {
     let childElements = [];
+    if (this.props.isLoading && this.props.activityIndicatorWithText) {
+      childElements.push(this._renderActivityIndicator());
+    }
     React.Children.forEach(this.props.children, (item) => {
       if (typeof item === 'string' || typeof item === 'number') {
         const element = (
@@ -61,23 +72,20 @@ const Button = React.createClass({
     return (childElements);
   },
 
-  shouldComponentUpdate: function (nextProps, nextState) {
-    if (!isEqual(nextProps, this.props)) {
-      return true;
-    }
-    return false;
+  _renderActivityIndicator: function () {
+    return (
+      <ActivityIndicator
+        animating={true}
+        size='small'
+        style={styles.spinner}
+        color={this.props.activityIndicatorColor || 'black'}
+      />
+    )
   },
 
   _renderInnerText: function () {
-    if (this.props.isLoading) {
-      return (
-        <ActivityIndicator
-          animating={true}
-          size='small'
-          style={styles.spinner}
-          color={this.props.activityIndicatorColor || 'black'}
-        />
-      );
+    if (this.props.isLoading && !this.props.activityIndicatorWithText) {
+      return this._renderActivityIndicator();
     }
     return this._renderChildren();
   },
@@ -136,13 +144,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   textButton: {
-    flex: 1,
     fontSize: 18,
     textAlign: 'center',
     backgroundColor: 'transparent',
   },
   spinner: {
     alignSelf: 'center',
+    marginRight: 6,
+    marginLeft: 6
   },
   opacity: {
     opacity: 0.5,

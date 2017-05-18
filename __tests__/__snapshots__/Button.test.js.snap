@@ -34,7 +34,6 @@ exports[`Button Renders 1`] = `
       Array [
         Object {
           "backgroundColor": "transparent",
-          "flex": 1,
           "fontSize": 18,
           "textAlign": "center"
         },
@@ -74,7 +73,6 @@ exports[`Button Renders disabled 1`] = `
       Array [
         Object {
           "backgroundColor": "transparent",
-          "flex": 1,
           "fontSize": 18,
           "textAlign": "center"
         },
@@ -113,9 +111,62 @@ exports[`Button Renders loading 1`] = `
     size="small"
     style={
       Object {
-        "alignSelf": "center"
+        "alignSelf": "center",
+        "marginLeft": 6,
+        "marginRight": 6
       }
     } />
+</View>
+`;
+
+exports[`Button Renders loading with text 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "alignSelf": "stretch",
+        "borderRadius": 8,
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "height": 44,
+        "justifyContent": "center",
+        "marginBottom": 10
+      },
+      undefined,
+      Object {
+        "opacity": 0.5
+      }
+    ]
+  }>
+  <ActivityIndicator
+    animating={true}
+    color="black"
+    hidesWhenStopped={true}
+    size="small"
+    style={
+      Object {
+        "alignSelf": "center",
+        "marginLeft": 6,
+        "marginRight": 6
+      }
+    } />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "fontSize": 18,
+          "textAlign": "center"
+        },
+        undefined
+      ]
+    }>
+    Loading button with text
+  </Text>
 </View>
 `;
 
@@ -187,7 +238,6 @@ exports[`Button Should contain children 1`] = `
       Array [
         Object {
           "backgroundColor": "transparent",
-          "flex": 1,
           "fontSize": 18,
           "textAlign": "center"
         },
@@ -235,7 +285,6 @@ exports[`Button Should react to the onPress event 1`] = `
       Array [
         Object {
           "backgroundColor": "transparent",
-          "flex": 1,
           "fontSize": 18,
           "textAlign": "center"
         },

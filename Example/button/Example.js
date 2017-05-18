@@ -87,6 +87,15 @@ class Example extends React.Component {
           Hello
         </Button>
         <Button
+          isLoading={true}
+          activityIndicatorWithText={true}
+          style={styles.buttonStyle7} textStyle={styles.textStyle6}
+          onPress={() => {
+            console.log('world!')
+          }}>
+          Hello
+        </Button>
+        <Button
           disabledStyle={styles.buttonStyle8}
           isDisabled={true}
           textStyle={styles.textStyle8}>

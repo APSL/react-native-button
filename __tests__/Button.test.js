@@ -33,6 +33,15 @@ describe('Button', () => {
     const tree = component.toJSON()
     expect(tree).toMatchSnapshot()
   })
+  test('Renders loading with text', () => {
+    const component = renderer.create(
+      <Button isLoading={true} activityIndicatorWithText={true}>
+        Loading button with text
+      </Button>
+    )
+    const tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
   test('Renders with a inner View', () => {
     const component = renderer.create(
       <Button>
