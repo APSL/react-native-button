@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Button Renders 1`] = `
 <View
   accessibilityComponentType={undefined}
@@ -5,13 +7,14 @@ exports[`Button Renders 1`] = `
   accessibilityTraits={undefined}
   accessible={true}
   hitSlop={undefined}
+  isTVSelectable={true}
   onLayout={undefined}
-  onResponderGrant={[Function bound touchableHandleResponderGrant]}
-  onResponderMove={[Function bound touchableHandleResponderMove]}
-  onResponderRelease={[Function bound touchableHandleResponderRelease]}
-  onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-  onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-  onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
   style={
     Object {
       "alignItems": "center",
@@ -22,10 +25,12 @@ exports[`Button Renders 1`] = `
       "height": 44,
       "justifyContent": "center",
       "marginBottom": 10,
-      "opacity": 1
+      "opacity": 1,
     }
   }
-  testID={undefined}>
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -36,11 +41,12 @@ exports[`Button Renders 1`] = `
           "backgroundColor": "transparent",
           "flex": 1,
           "fontSize": 18,
-          "textAlign": "center"
+          "textAlign": "center",
         },
-        undefined
+        undefined,
       ]
-    }>
+    }
+  >
     Button
   </Text>
 </View>
@@ -58,14 +64,15 @@ exports[`Button Renders disabled 1`] = `
         "flexDirection": "row",
         "height": 44,
         "justifyContent": "center",
-        "marginBottom": 10
+        "marginBottom": 10,
       },
       undefined,
       Object {
-        "opacity": 0.5
-      }
+        "opacity": 0.5,
+      },
     ]
-  }>
+  }
+>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -76,11 +83,12 @@ exports[`Button Renders disabled 1`] = `
           "backgroundColor": "transparent",
           "flex": 1,
           "fontSize": 18,
-          "textAlign": "center"
+          "textAlign": "center",
         },
-        undefined
+        undefined,
       ]
-    }>
+    }
+  >
     Disabled button
   </Text>
 </View>
@@ -98,14 +106,15 @@ exports[`Button Renders loading 1`] = `
         "flexDirection": "row",
         "height": 44,
         "justifyContent": "center",
-        "marginBottom": 10
+        "marginBottom": 10,
       },
       undefined,
       Object {
-        "opacity": 0.5
-      }
+        "opacity": 0.5,
+      },
     ]
-  }>
+  }
+>
   <ActivityIndicator
     animating={true}
     color="black"
@@ -113,9 +122,10 @@ exports[`Button Renders loading 1`] = `
     size="small"
     style={
       Object {
-        "alignSelf": "center"
+        "alignSelf": "center",
       }
-    } />
+    }
+  />
 </View>
 `;
 
@@ -126,13 +136,14 @@ exports[`Button Renders with a inner View 1`] = `
   accessibilityTraits={undefined}
   accessible={true}
   hitSlop={undefined}
+  isTVSelectable={true}
   onLayout={undefined}
-  onResponderGrant={[Function bound touchableHandleResponderGrant]}
-  onResponderMove={[Function bound touchableHandleResponderMove]}
-  onResponderRelease={[Function bound touchableHandleResponderRelease]}
-  onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-  onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-  onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
   style={
     Object {
       "alignItems": "center",
@@ -143,10 +154,12 @@ exports[`Button Renders with a inner View 1`] = `
       "height": 44,
       "justifyContent": "center",
       "marginBottom": 10,
-      "opacity": 1
+      "opacity": 1,
     }
   }
-  testID={undefined}>
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
   <View />
 </View>
 `;
@@ -158,13 +171,14 @@ exports[`Button Should contain children 1`] = `
   accessibilityTraits={undefined}
   accessible={true}
   hitSlop={undefined}
+  isTVSelectable={true}
   onLayout={undefined}
-  onResponderGrant={[Function bound touchableHandleResponderGrant]}
-  onResponderMove={[Function bound touchableHandleResponderMove]}
-  onResponderRelease={[Function bound touchableHandleResponderRelease]}
-  onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-  onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-  onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
   style={
     Object {
       "alignItems": "center",
@@ -175,10 +189,12 @@ exports[`Button Should contain children 1`] = `
       "height": 44,
       "justifyContent": "center",
       "marginBottom": 10,
-      "opacity": 1
+      "opacity": 1,
     }
   }
-  testID={undefined}>
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -189,11 +205,12 @@ exports[`Button Should contain children 1`] = `
           "backgroundColor": "transparent",
           "flex": 1,
           "fontSize": 18,
-          "textAlign": "center"
+          "textAlign": "center",
         },
-        undefined
+        undefined,
       ]
-    }>
+    }
+  >
     Press me!
   </Text>
 </View>
@@ -206,13 +223,14 @@ exports[`Button Should react to the onPress event 1`] = `
   accessibilityTraits={undefined}
   accessible={true}
   hitSlop={undefined}
+  isTVSelectable={true}
   onLayout={undefined}
-  onResponderGrant={[Function bound touchableHandleResponderGrant]}
-  onResponderMove={[Function bound touchableHandleResponderMove]}
-  onResponderRelease={[Function bound touchableHandleResponderRelease]}
-  onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-  onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-  onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
   style={
     Object {
       "alignItems": "center",
@@ -223,10 +241,12 @@ exports[`Button Should react to the onPress event 1`] = `
       "height": 44,
       "justifyContent": "center",
       "marginBottom": 10,
-      "opacity": 1
+      "opacity": 1,
     }
   }
-  testID={undefined}>
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
   <Text
     accessible={true}
     allowFontScaling={true}
@@ -237,11 +257,12 @@ exports[`Button Should react to the onPress event 1`] = `
           "backgroundColor": "transparent",
           "flex": 1,
           "fontSize": 18,
-          "textAlign": "center"
+          "textAlign": "center",
         },
-        undefined
+        undefined,
       ]
-    }>
+    }
+  >
     Press me!
   </Text>
 </View>

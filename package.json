@@ -13,7 +13,7 @@
       "Example",
       "node_modules/react-native/node_modules/"
     ],
-    "preprocessorIgnorePatterns": [
+    "transformIgnorePatterns": [
       "node_modules/(?!react-native|tcomb-form-native|react-native-localization|@exponent/react-native-action-sheet|rnrf-relay-renderer|redux-action-api-utils|frisbee)"
     ]
   },
@@ -37,7 +37,7 @@
   "homepage": "https://github.com/APSL/react-native-button#readme",
   "dependencies": {
     "lodash.isequal": "^4.1.4",
-    "prop-types": "^15.5.8"
+    "prop-types": "^15.5.10"
   },
   "devDependencies": {
     "babel-eslint": "^6.0.5",
@@ -48,11 +48,11 @@
     "eslint": "^2.13.1",
     "eslint-plugin-react": "^5.2.2",
     "eslint-plugin-react-native": "^1.1.0-beta",
-    "jest": "^15.1.1",
-    "jest-react-native": "^15.0.0",
-    "react": "^15.3.2",
-    "react-native": "^0.34.0",
-    "react-test-renderer": "^15.3.2",
+    "jest": "^20.0.0",
+    "jest-react-native": "^18.0.0",
+    "react": "^15.4.0",
+    "react-native": "^0.42.0",
+    "react-test-renderer": "^15.4.0",
     "whatwg-fetch": "^1.0.0"
   }
 }
