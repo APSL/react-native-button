@@ -121,7 +121,7 @@ class Button extends Component {
       );
     }
   }
-};
+}
 
 const styles = StyleSheet.create({
   button: {
