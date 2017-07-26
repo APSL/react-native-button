@@ -1,6 +1,6 @@
 'use strict';
 
-import React, { PropTypes } from 'react';
+import React, { Component } from 'react';
 import {
   View,
   TouchableOpacity,
@@ -10,10 +10,11 @@ import {
   TouchableNativeFeedback,
   Platform
 } from 'react-native';
+import PropTypes from 'prop-types';
 import isEqual from 'lodash.isequal';
 
-const Button = React.createClass({
-  propTypes: {
+class Button extends Component {
+  static propTypes = {
     textStyle: Text.propTypes.style,
     disabledStyle: Text.propTypes.style,
     children: PropTypes.oneOfType([
@@ -35,13 +36,11 @@ const Button = React.createClass({
     onPressIn: PropTypes.func,
     onPressOut: PropTypes.func,
     background: (TouchableNativeFeedback.propTypes) ? TouchableNativeFeedback.propTypes.background : PropTypes.any,
-  },
+  }
 
-  statics: {
-    isAndroid: (Platform.OS === 'android'),
-  },
+  static isAndroid = (Platform.OS === 'android')
 
-  _renderChildren: function() {
+  _renderChildren() {
     let childElements = [];
     React.Children.forEach(this.props.children, (item) => {
       if (typeof item === 'string' || typeof item === 'number') {
@@ -59,16 +58,16 @@ const Button = React.createClass({
       }
     });
     return (childElements);
-  },
+  }
 
-  shouldComponentUpdate: function (nextProps, nextState) {
+  shouldComponentUpdate(nextProps, nextState) {
     if (!isEqual(nextProps, this.props)) {
       return true;
     }
     return false;
-  },
+  }
 
-  _renderInnerText: function () {
+  _renderInnerText() {
     if (this.props.isLoading) {
       return (
         <ActivityIndicator
@@ -80,9 +79,9 @@ const Button = React.createClass({
       );
     }
     return this._renderChildren();
-  },
+  }
 
-  render: function () {
+  render() {
     if (this.props.isDisabled === true || this.props.isLoading === true) {
       return (
         <View style={[styles.button, this.props.style, (this.props.disabledStyle || styles.opacity)]}>
@@ -122,7 +121,7 @@ const Button = React.createClass({
       );
     }
   }
-});
+}
 
 const styles = StyleSheet.create({
   button: {
