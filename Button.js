@@ -36,6 +36,7 @@ class Button extends Component {
     onPressIn: PropTypes.func,
     onPressOut: PropTypes.func,
     background: (TouchableNativeFeedback.propTypes) ? TouchableNativeFeedback.propTypes.background : PropTypes.any,
+    testID: PropTypes.string,
   }
 
   static isAndroid = (Platform.OS === 'android')
@@ -100,6 +101,7 @@ class Button extends Component {
       delayLongPress: this.props.delayLongPress,
       delayPressIn: this.props.delayPressIn,
       delayPressOut: this.props.delayPressOut,
+      testID: this.props.testID,
     };
     if (Button.isAndroid) {
       touchableProps = Object.assign(touchableProps, {
