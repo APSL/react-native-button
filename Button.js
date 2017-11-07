@@ -15,8 +15,9 @@ import isEqual from 'lodash.isequal';
 
 class Button extends Component {
   static propTypes = {
-    textStyle: Text.propTypes.style,
     disabledStyle: Text.propTypes.style,
+    textStyle: Text.propTypes.style,
+    disabledTextStyle: Text.propTypes.style,
     children: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.node,
@@ -42,11 +43,13 @@ class Button extends Component {
 
   _renderChildren() {
     let childElements = [];
+    const disabledTextStyle = this.props.isDisabled && this.props.disabledTextStyle;
+
     React.Children.forEach(this.props.children, (item) => {
       if (typeof item === 'string' || typeof item === 'number') {
         const element = (
           <Text
-            style={[styles.textButton, this.props.textStyle]}
+            style={[styles.textButton, this.props.textStyle, disabledTextStyle]}
             allowFontScaling={this.props.allowFontScaling}
             key={item}>
             {item}
