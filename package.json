@@ -51,7 +51,7 @@
     "jest": "^20.0.0",
     "jest-react-native": "^18.0.0",
     "react": "^15.4.0",
-    "react-native": "^0.42.0",
+    "react-native": "^0.50.0",
     "react-test-renderer": "^15.4.0",
     "whatwg-fetch": "^1.0.0"
   }
