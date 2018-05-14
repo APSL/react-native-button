@@ -66,7 +66,9 @@ your own styles to your child elements as you see fit. Multiple children are all
 | ``onPressOut`` | ``func`` | Function to execute when the ``onPressOut`` event is triggered. |
 | ``onLongPress`` | ``func`` | Function to execute when the ``onLongPress`` event is triggered. |
 | ``textStyle`` | ``TextStylePropTypes`` | The StyleSheet to apply to the inner button text. |
-| ``disabledStyle`` | ``TextStylePropTypes`` | The StyleSheet to apply when disabled. |
+| ``disabledTextStyle`` | ``TextStylePropTypes`` | The StyleSheet for text to apply when disabled |
+| ``style`` | ``ViewPropTypes.style`` | The StyleSheet to apply when disabled. |
+| ``disabledStyle`` | ``ViewPropTypes.style`` | The StyleSheet to apply when disabled. |
 | ``children`` | ``string``, ``number``, ``React.Element``,or ``array`` | The child nodes to render inside the button. If child is ``string`` or ``number``, it will be rendered inside of a ``<Text>`` element with ``textStyle`` applied if present. Multiple children are allowed (``array``).|
 | ``isLoading`` | ``bool`` | Renders an inactive state dimmed button with a spinner if ``true``. |
 | ``isDisabled`` | ``bool`` | Renders an inactive state dimmed button if ``true``. |
