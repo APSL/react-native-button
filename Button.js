@@ -24,6 +24,8 @@ class Button extends Component {
     ]),
     testID: PropTypes.string,
     accessibilityLabel: PropTypes.string,
+    accessibilityTraits: PropTypes.string,
+    accessibilityComponentType: PropTypes.string,
     activeOpacity: PropTypes.number,
     allowFontScaling: PropTypes.bool,
     isLoading: PropTypes.bool,
@@ -94,6 +96,8 @@ class Button extends Component {
     let touchableProps = {
       testID: this.props.testID,
       accessibilityLabel: this.props.accessibilityLabel,
+      accessibilityTraits: this.props.accessibilityTraits,
+      accessibilityComponentType: this.props.accessibilityComponentType,
       onPress: this.props.onPress,
       onPressIn: this.props.onPressIn,
       onPressOut: this.props.onPressOut,
