@@ -24,7 +24,10 @@ class Button extends Component {
     ]),
     testID: PropTypes.string,
     accessibilityLabel: PropTypes.string,
-    accessibilityTraits: PropTypes.string,
+    accessibilityTraits: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.array
+    ]),
     accessibilityComponentType: PropTypes.string,
     activeOpacity: PropTypes.number,
     allowFontScaling: PropTypes.bool,
