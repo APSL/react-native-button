@@ -8,6 +8,7 @@ import {
   StyleSheet,
   ActivityIndicator,
   TouchableNativeFeedback,
+  Keyboard,
   Platform
 } from 'react-native';
 import PropTypes from 'prop-types';
@@ -32,6 +33,7 @@ class Button extends Component {
     delayLongPress: PropTypes.number,
     delayPressIn: PropTypes.number,
     delayPressOut: PropTypes.number,
+    dismissKeyboard: PropTypes.bool,
     onPress: PropTypes.func,
     onLongPress: PropTypes.func,
     onPressIn: PropTypes.func,
@@ -95,7 +97,10 @@ class Button extends Component {
       testID: this.props.testID,
       accessibilityLabel: this.props.accessibilityLabel,
       onPress: this.props.onPress,
-      onPressIn: this.props.onPressIn,
+      onPressIn: () => {
+        this.props.dismissKeyboard && Keyboard.dismiss();
+        this.props.onPressIn && this.props.onPressIn();
+      },
       onPressOut: this.props.onPressOut,
       onLongPress: this.props.onLongPress,
       activeOpacity: this.props.activeOpacity,
