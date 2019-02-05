@@ -71,6 +71,7 @@ your own styles to your child elements as you see fit. Multiple children are all
 | ``isLoading`` | ``bool`` | Renders an inactive state dimmed button with a spinner if ``true``. |
 | ``isDisabled`` | ``bool`` | Renders an inactive state dimmed button if ``true``. |
 | ``activeOpacity`` | ``Number`` | The button onpressing transparency (Usually with a point value between 0 and 1). |
+| ``activityIndicator`` | ``React.Node`` | Activity indicator to use when ``isLoading`` is true. |
 | ``activityIndicatorColor`` | ``string`` | Sets the button of the ``ActivityIndicatorIOS`` or ``ProgressBarAndroid`` in the loading state. |
 | ``background`` | ``TouchableNativeFeedback.propTypes.background`` | **Android only**. The background prop of ``TouchableNativeFeedback``. |
 Check the included example for more options.

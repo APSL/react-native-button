@@ -1,6 +1,6 @@
 /* global test */
 
-import { View } from 'react-native'
+import { Text, View } from 'react-native'
 import React from 'react'
 import Button from '../Button'
 import renderer from 'react-test-renderer'
@@ -28,6 +28,15 @@ describe('Button', () => {
     const component = renderer.create(
       <Button isLoading={true}>
         Loading button
+      </Button>
+    )
+    const tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+  test('Renders custom activity indicator', () => {
+    const component = renderer.create(
+      <Button isLoading={true} activityIndicator={<Text>Loading</Text>}>
+        Custom loader button
       </Button>
     )
     const tree = component.toJSON()

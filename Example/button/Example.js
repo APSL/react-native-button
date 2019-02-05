@@ -87,6 +87,15 @@ class Example extends React.Component {
           Hello
         </Button>
         <Button
+          isLoading={true}
+          style={styles.buttonStyle9}
+          onPress={() => {
+            console.log('world!')
+          }}
+          activityIndicator={<Text>Custom activity indicator</Text>}>
+          Hello
+        </Button>
+        <Button
           disabledStyle={styles.buttonStyle8}
           isDisabled={true}
           textStyle={styles.textStyle8}>
@@ -171,6 +180,12 @@ const styles = StyleSheet.create({
     fontFamily: 'Avenir Next',
     fontWeight: '500',
     color: '#333',
+  },
+  buttonStyle9: {
+    borderColor: '#d291bc',
+    backgroundColor: 'white',
+    borderRadius: 0,
+    borderWidth: 3,
   },
   customViewStyle: {
     width: 120,
