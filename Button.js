@@ -28,6 +28,7 @@ class Button extends Component {
     allowFontScaling: PropTypes.bool,
     isLoading: PropTypes.bool,
     isDisabled: PropTypes.bool,
+    activityIndicator: PropTypes.object,
     activityIndicatorColor: PropTypes.string,
     delayLongPress: PropTypes.number,
     delayPressIn: PropTypes.number,
@@ -70,6 +71,10 @@ class Button extends Component {
 
   _renderInnerText() {
     if (this.props.isLoading) {
+      if (this.props.activityIndicator) {
+        return this.props.activityIndicator;
+      }
+
       return (
         <ActivityIndicator
           animating={true}
