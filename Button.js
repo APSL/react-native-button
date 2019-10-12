@@ -86,6 +86,8 @@ class Button extends Component {
   }
 
   render() {
+    let { touchFeedBackType } = this.props
+    touchFeedBackType = Button.touchFeedBackTypes.includes(touchFeedBackType) ? touchFeedBackType : 'nativeFeedback'
     if (this.props.isDisabled === true || this.props.isLoading === true) {
       return (
         <View style={[styles.button, this.props.style, (this.props.disabledStyle || styles.opacity)]}>
