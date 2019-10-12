@@ -70,6 +70,7 @@ your own styles to your child elements as you see fit. Multiple children are all
 | ``children`` | ``string``, ``number``, ``React.Element``,or ``array`` | The child nodes to render inside the button. If child is ``string`` or ``number``, it will be rendered inside of a ``<Text>`` element with ``textStyle`` applied if present. Multiple children are allowed (``array``).|
 | ``isLoading`` | ``bool`` | Renders an inactive state dimmed button with a spinner if ``true``. |
 | ``isDisabled`` | ``bool`` | Renders an inactive state dimmed button if ``true``. |
+| ``touchFeedBackType`` | ``string`` | Accepted values ``nativeFeedback``, ``opacity``. Default value ``nativeFeedback``, if value is  ``nativeFeedback`` then button is rendered  using ``TouchableNativeFeedBack`` else if value is ``opacity`` then button is rendered using ``TouchableOpacity`` (**Only for Android**) |
 | ``activeOpacity`` | ``Number`` | The button onpressing transparency (Usually with a point value between 0 and 1). |
 | ``activityIndicatorColor`` | ``string`` | Sets the button of the ``ActivityIndicatorIOS`` or ``ProgressBarAndroid`` in the loading state. |
 | ``background`` | ``TouchableNativeFeedback.propTypes.background`` | **Android only**. The background prop of ``TouchableNativeFeedback``. |
