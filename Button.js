@@ -37,6 +37,7 @@ class Button extends Component {
     onPressIn: PropTypes.func,
     onPressOut: PropTypes.func,
     background: (TouchableNativeFeedback.propTypes) ? TouchableNativeFeedback.propTypes.background : PropTypes.any,
+    touchFeedBackType: PropTypes.oneOf(['nativeFeedback', 'opacity'])
   }
 
   static isAndroid = (Platform.OS === 'android')
