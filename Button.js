@@ -37,7 +37,10 @@ class Button extends Component {
     onPressIn: PropTypes.func,
     onPressOut: PropTypes.func,
     background: (TouchableNativeFeedback.propTypes) ? TouchableNativeFeedback.propTypes.background : PropTypes.any,
+    touchFeedBackType: PropTypes.oneOf(['nativeFeedback', 'opacity'])
   }
+
+  static touchFeedBackTypes = ['nativeFeedback', 'opacity']
 
   static isAndroid = (Platform.OS === 'android')
 
@@ -83,6 +86,8 @@ class Button extends Component {
   }
 
   render() {
+    let { touchFeedBackType } = this.props
+    touchFeedBackType = Button.touchFeedBackTypes.includes(touchFeedBackType) ? touchFeedBackType : 'nativeFeedback'
     if (this.props.isDisabled === true || this.props.isLoading === true) {
       return (
         <View style={[styles.button, this.props.style, (this.props.disabledStyle || styles.opacity)]}>
@@ -103,7 +108,7 @@ class Button extends Component {
       delayPressIn: this.props.delayPressIn,
       delayPressOut: this.props.delayPressOut,
     };
-    if (Button.isAndroid) {
+    if (Button.isAndroid && touchFeedBackType === 'nativeFeedback') {
       touchableProps = Object.assign(touchableProps, {
         background: this.props.background || TouchableNativeFeedback.SelectableBackground()
       });
