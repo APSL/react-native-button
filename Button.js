@@ -40,6 +40,8 @@ class Button extends Component {
     touchFeedBackType: PropTypes.oneOf(['nativeFeedback', 'opacity'])
   }
 
+  static touchFeedBackTypes = ['nativeFeedback', 'opacity']
+
   static isAndroid = (Platform.OS === 'android')
 
   _renderChildren() {
