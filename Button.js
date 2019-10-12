@@ -108,7 +108,7 @@ class Button extends Component {
       delayPressIn: this.props.delayPressIn,
       delayPressOut: this.props.delayPressOut,
     };
-    if (Button.isAndroid) {
+    if (Button.isAndroid && touchFeedBackType === 'nativeFeedback') {
       touchableProps = Object.assign(touchableProps, {
         background: this.props.background || TouchableNativeFeedback.SelectableBackground()
       });
