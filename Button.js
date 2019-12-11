@@ -23,6 +23,7 @@ class Button extends Component {
       PropTypes.element
     ]),
     testID: PropTypes.string,
+    accessible: PropTypes.bool,
     accessibilityLabel: PropTypes.string,
     activeOpacity: PropTypes.number,
     allowFontScaling: PropTypes.bool,
@@ -93,6 +94,7 @@ class Button extends Component {
     // Extract Touchable props
     let touchableProps = {
       testID: this.props.testID,
+      accessible: this.props.accessible,
       accessibilityLabel: this.props.accessibilityLabel,
       onPress: this.props.onPress,
       onPressIn: this.props.onPressIn,
